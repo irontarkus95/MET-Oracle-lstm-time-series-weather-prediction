@@ -1,0 +1,70 @@
+html, body { /* Getting rid of default padding, margin and setting text color */
+	margin: 0;
+  padding: 0;
+  color: white;
+}
+
+#bg { /* Body tag was used as background image, scales to any screen size */
+	height: 100%;
+	background-image: url("../img/back.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#content { /* All text content about project */ 
+	display: inline-block;
+	width: 90%;
+	box-shadow: 0 0 20px 6px #cccccc;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(4, 4, 4, 0.5);
+}
+
+.banner { /* Title banner at top of page */
+	border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(4, 4, 4, 0.3);
+}
+
+.info p { /* Giving space on the left and right for aesthetics*/
+	margin-left:  7.5%;
+	margin-right: 7.5%;
+}
+
+.footer { background: rgba(4, 4, 4, 0.5); } /* .footer was defined in main.css, this overrides the value to cater for the current background */
+
+
+/* CODE BEFLOW IS FROM W3SCHOOLS */
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; right: 0; /* Place on right side */
+  background-color: black;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.3s; /* 0.3 second transition effect to slide in the sidenav */
+}
+
+.sidenav .input_field { margin-top: 5px; }
+
+.sidenav form { /* Fading transition when the sidebar is opened */
+	opacity: 0;
+	transition: opacity 0.6s;
+}
+
+.opened { opacity: 1 !important; }
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}

@@ -1,0 +1,122 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.center { text-align: center; } /*Center all text on page*/
+
+.banner { /*Banner at top*/
+  padding: 1rem;
+  background: rgba(220, 220, 220, 0.5);
+  box-shadow: 0px 6px 20px #cccccc;
+}
+
+.banner h1 { 
+  display: inline-block;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#gmap { /*Google Map div*/
+  height: 500px;
+  width: 100%;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+#sensorarea { display: none; } /*Hide sensors until marker is clicked */
+
+.footer { /*transluscent bar at bottom of page*/
+  margin-top: 10%;  
+  position: fixed;
+  bottom: 0pt; left: 0pt;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(254, 254, 254, 0.5);
+  text-align: center;
+  box-shadow: 0px -6px 20px #cccccc;;
+}
+
+button { 
+  color: white;
+  background-color: rgb(92, 184, 92);
+  border-radius: 10px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s;
+  -o-transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.1s;
+}
+
+button:hover { 
+  color: black;
+  background-color: white; 
+}
+
+button:active { transform: scale(0.9); }
+
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+#sensorarea li { /*List items to display sensor information*/
+  display: inline-block;
+  list-style-type: none;
+  color: white;
+  background-color: rgb(92, 184, 92);
+  margin-top: 5px;
+  border-radius: 10px;
+  padding: 10px; width: 50%;
+  -webkit-transition: color 0.3s ease, background-color 0.3s ease;
+  -o-transition: color 0.3s ease, background-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  
+}
+
+#sensorarea li:hover {
+  color: black;
+  background-color: white;
+}
+/* Media Queries for different devices  */
+
+@media only screen and (max-height: 3140px) {
+  #gmap {
+    height: 2500px;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid black;
+  }
+}
+
+@media only screen and (max-height: 1366px) {
+  #gmap {
+    height: 850px;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid black;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #gmap {
+    height: 500px;
+    width: 70%;
+    display: inline-block;
+    border: 1px solid black;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #gmap {
+    height: 200px;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid black;
+  }
+
+  .footer button {
+    display: block;
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"> <!-- Having page scale to any device -->
+	<title>Feedback</title>
+	<link rel="stylesheet" href="css/main.css"> <!-- Reusing some classes from main.css  -->
+	<link rel="stylesheet" href="css/feedback.css"> <!-- Defining custom classes here  -->
+</head>
+<body class = "center" id = "bg"> <!-- id bg is for adding the background image -->
+	<div class = "banner">
+		<h1> MET-ORACLE Info and Feedback </h1>
+	</div> <br>
+
+	<div id="content">
+		<div class="info">
+			<h2>Our Problem</h2>
+			<p>
+				Weather is an extremely part of our daily lives that many people seem to take for granted. Whether we can go outside, plan a family event or even do general repairs on our houses all depend on the weather. This is especially true for the small islands of Trinidad and Tobago since the effects of climate change are greater on coastal areas. If the weather could have been predicted more accurately, then short term benefits such as farmers protecting crops can be observed. Additionally, larger national projects such as infrastructural work and fishing also rely heavily on the weather. The main concern, however, is that weather tends to be very unpredictable and relies on so many factors. This makes an accurate guess of the future climate nearly impossible. This is where MET-ORACLE comes into play.
+			</p>
+		</div> <hr>
+
+		<div class="info">
+			<h2>About MET-ORACLE</h2>
+			<p>
+				MET-ORACLE was developed to combat the problem of inaccuracies of weather prediction by providing its own predictions through the use of machine learning. Additionally, MET-ORACLE can be chained together with at least 1 raspberry pi microcontroller to carry out actions based on incoming predictions. This can help businesses and farmers in the short term by giving indications to incoming inclement weather.Examples being automatically covering crops if torrential rainfall is imminent and automatically securing communications antennae due to incoming strong winds. All these ideas are geared towards the concept of a Smart City, that is, a city able to adapt to its environment without human intervention.
+			</p> 
+		</div> <hr>
+		<div class="info">
+			<h2>Implementation</h2>
+			<p>
+				A central server hosting a modified version of Google Tensorflow can connect to many raspberry pi units, each having an array of sensors such as Temperature, Humidity, Precipitation, Cloud Cover and Atmospheric Pressure. These readings are taken at a regular time interval (can be altered by user) and sent back to the server for processing. 
+				The server, which already has a pretrained model, will assess the data and make a prediction based on it. Each raspberry pi will have its own conditions set with respect to what levels of each reading is considered safe. Once a server prediction falls outside of the safe range of readings for a particular pi, it sends a response back to the pi signaliing an action. The pi will then handle the request by performing some action (eg. moving a robotic arm). The server will send back an OK response to the pi if predictions fall within the safe range of values.
+				The same data being sent to the pi is also sent to a website. This website displays all the data for all sensors across Trinidad and allows the addition or removal of future sensors. Contacting the developers can be done through the website as well.
+			</p>
+		</div> 
+
+	</div>
+
+	<br><br><br><br><br><br><br><br><br><br>
+
+	<div id="mySidenav" class="sidenav">
+	  	<span href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</span>
+	  	<form id = "form" onsubmit=" closeNav(); return false;">
+	  		<h3> FEEDBACK FORM </h3>
+	  		<h4> What would you like to tell us?</h4>
+
+	  		<div class = "input_field" id="inputname">
+	  			<label for="name">Name: </label> <!-- Name of Person -->
+	  			<input type="text" name = "name">
+	  		</div>
+	  		
+			<div class = "input_field" id="inputemail"> <!-- Email of person sending the message -->
+				<label for="email">Email: </label>
+	  			<input type= "email" name = "email">
+			</div>
+	  		
+			<div class = "input_field" id="choice"> <!-- Choose between sending suggestions to improve or to report bugs  -->
+				<label for="suggestion">Suggestion: </label>
+		  		<input type="radio" name = "choice"> 
+
+		  		<label for="bug_report">Report a bug: </label>
+		  		<input type="radio" name = "choice"> <br>
+			</div>
+	  		
+			<div class = "input_field" id="desc"> <!-- Type out message to be sent here  -->
+				<label for="description">Description: </label> <br>
+	  			<textarea name="description" cols="30" rows="10" placeholder="Enter text here..."></textarea>
+			</div>
+	  		
+	  		<button type = "submit" value = "submit">Submit</button>
+	  	</form>
+	</div>
+
+	<footer class="footer"> <!-- Extra information  -->
+		<span> Project: MET-ORACLE</span> <br>
+		<span> Competition: Teleios Code Jam 2017 Trinidad and Tobago</span> <br>
+		<span> Developers: Michael Ali, Qarun Bissoondial, Gabriela Sewdhan =D </span> <br>
+		<button class = "button-press" id = "email" onclick="openNav()">Contact Us!</button>
+	</footer>
+
+	<!-- Extra info and contact developers (branch of main page):
+		Brief summary of goal to be achieved
+			- Explain the problem
+			- Explain why the solution was chosen
+			- Explain the basic implementation 
+		Contact form at the bottom
+			- Send an email to the developers (Possible security risk here, have the server send the email)
+			- Have radio buttons to distingush between problems or future suggestions
+			- Have a textfield describing what the person wants to say
+	-->
+
+<script src = "js/feedback.js"></script>
+</body>
+</html>

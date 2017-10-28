@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>MET-Oracle</title>
+	<link rel="stylesheet" href="css/main.css">
+
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script> <!-- Linking jQuery 3.2.1 to webpage from CDN --> 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrFtIKQ458Qko3f-WwdIJmajMoGScktZc&callback=initMap"
+  type="text/javascript"></script> <!-- Linking Google Maps API -->
+
+</head>
+
+<body class = "center">
+	<div class = "banner" >
+		<h1> MET-Oracle </h1>
+	</div> <br>
+	
+	<div id="gmap"> </div> <hr>  <!-- Google Map goes here. Click on marker to reveal info -->
+	
+	<div id="sensorarea" class = "banner">	<!-- Summarized sensor information -->
+		<div> 
+			<h2 id = "area_name"></h2>
+
+			<li id = "temp">
+				<span class = "value"> </span> <!-- Value goes here -->
+				<span data-unit = "default"> &deg;F</span> <!-- Unit Goes here -->
+			</li>
+			<li id = "hum"> 
+				<span class = "value"> </span> 
+				<span data-unit = "default"> %</span> 
+			</li>
+			<li id = "pres"> 
+				<span class = "value"> </span> 
+				<span data-unit = "default"> mbar</span> 
+			</li>
+			<li id = "cloud" > 
+				<span class = "value"> </span> 
+				<span data-unit = "default"></span> 
+			</li>
+			<li id = "precip"> 
+				<span class = "value"> </span> 
+			</li>
+		</div>
+		<br>
+
+		<button id = "go_to_top">Back to top</button> <!-- Slides up and keeps info -->
+		<button id = "close">Close</button> <!-- Slides up and hides info -->
+	</div>
+
+	<br><br><br><br><br>
+
+	<footer class="footer"> <!-- Translucent bar at bottom -->
+		<button> Add a sensor </button>
+		<button> <a href="feedback.html">Contact the developers</a> </button>
+		<button> <a href="feedback.html">About this Service</a> </button>
+	</footer>
+
+
+<script src = "js/main.js"></script>
+
+	<!-- 
+		ANYTHING THAT ISN'T DONE NEEDS EXTRA DATA FROM THE SERVER
+		Purpose of website (main page) :
+			Needs to display the map of where all the sensors are located (Done)
+				- Get the location from the server
+				- Assign each location / sensor an ID
+				- Constantly pull all data in for all the sensors from the server (every 30 mins)
+			Clicking on a sensor location reveals the status of the sensor
+				- Adds a drop down area with summarized info beneath the map (done)
+				- Personal messages associated with that location ???
+	 -->
+</body>
+</html>
