@@ -43,7 +43,7 @@ unixtime = "1420498800"
 #build string
 
 def getDataFrom(lat, lon, time):
-    
+
     getURL = baseURL+key+"/"+str(lat)+","+str(lon)+","+str(time)+"?"+excludeString
     print getURL
 
@@ -52,7 +52,7 @@ def getDataFrom(lat, lon, time):
     # write to db
     post_id = data.insert_one(r.json()).inserted_id
     print("written to db")
-#r = 
+#r =
 
 #getDataFrom(42.3601,-71.0589,1420498800)
 
@@ -72,7 +72,7 @@ print day+' is '+str(int(unixtime))
 
 #getWeatherDataWithin -l NWLatLong -r SELatLong -s StartDate - e EndDate
 
-# first 5x5 
+# first 5x5
 
 #l = (42.430426, -90.450439) # galena, IL
 #sr = (40.144108, -87.583008) # westville, IL
@@ -88,8 +88,8 @@ r = (36.892252, -87.604980) # near clarksville KY
 
 # next, walk lat/long range by freqency and date.
 
-# a better way to do this may be to make an interval for the time range as well, so space and time sample resolution both have a scale factor. 
-# but for now, let's just do each day of the year. 
+# a better way to do this may be to make an interval for the time range as well, so space and time sample resolution both have a scale factor.
+# but for now, let's just do each day of the year.
 
 #increment day day += timedelta(days=1)
 
@@ -98,7 +98,7 @@ height = l[1]-r[1]
 
 interval = 15.0
 
-print width 
+print width
 
 wfactor = width/interval
 hfactor = height/interval
@@ -111,17 +111,6 @@ lats = np.arange(r[1],l[1],hfactor)
 
 print longs
 print lats
-
-'''
-def getWeatherForInterval(start, end):
-    day = start
-    while 1 :
-        date = datetime.strptime(day, '%Y-%m-%d')
-        unixtime = time.mktime(date.timetuple())
-        day += timedelta(days=1)
-        print day
-'''
-
 
 
 def getWeatherFromAllLocationsForADay(unixtime):
@@ -150,37 +139,3 @@ def getDaysForInterval():
         getWeatherFromAllLocationsForADay(unixtime)
 
 getDaysForInterval()
-
-'''
-#neat 
-
->>> from geopy.geocoders import Nominatim
->>> geolocator = Nominatim()
->>> location = geolocator.reverse("52.509669, 13.376294")
->>> print(location.address)
-Berliner Mauer, Zimmerstrae, Mitte, Berlin, 10117, Deutschland
-'''
-
-
-
-'''
-galena / far west IL (42.430426, -90.450439)
-
-waukegan / far east IL (42.466905, -87.797241)
-
-
-quincy / far west, south (39.932644, -91.285400)
-
-westville / far east, south 40.144108, -87.583008)
-
-
->>> -90.450439 + 87.797241
--2.6531980000000033
-width / long
-
->>> 42.430426-39.932644
-2.4977819999999937
->>> 
-range height / lat
-'''
-

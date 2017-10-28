@@ -35,11 +35,11 @@ lon = "-71.0589"
 
 print data.find_one()['daily']['data'][0].keys()
 
-# let's get a whole bunch... 10x10 grid. 
+# let's get a whole bunch... 10x10 grid.
 
 # we're going to assume the only content of the database is a single run of 'getData'
 
-#that is, we're not doing any time selection or lat/long filtering or anything. 
+#that is, we're not doing any time selection or lat/long filtering or anything.
 #we're just loading the entire collection into memory
 #you've been warned :)
 
@@ -55,9 +55,9 @@ def writeCSVfromDB():
         fieldNames.insert(0,"latitude")
         fieldNames.insert(0,"longitude")
         fieldNames.insert(0,"date")
-        outFileWriter = csv.DictWriter(outfile, extrasaction='ignore', fieldnames=fieldNames)  
+        outFileWriter = csv.DictWriter(outfile, extrasaction='ignore', fieldnames=fieldNames)
         outFileWriter.writeheader()
-        # loop through 
+        # loop through
         for i,d in enumerate(data.find()):
             print i
             # de-serialize json to CSV row
@@ -69,7 +69,7 @@ def writeCSVfromDB():
                 row.update({'date':date})
                 outFileWriter.writerow(row)
             #outFileWriter.flush()
-            else: 
+            else:
                 print " no daily ? "
 
 
@@ -91,14 +91,14 @@ def writeElevationToMongo():
         print d['elevation']
         if i == 15:
             break
-        
+
 # mycollection.update({'_id':mongo_id}, {"$set": post}, upsert=False)
 
 # get elevation
 
     # let's get elevation from lat lon
     # then use it to update items in the existing collection
-    # perhpas multiprocess 
+    # perhpas multiprocess
 
 def mapElevation():
     #allFiles = glob.glob(path+'rapidblue.action.*.sql')
@@ -107,7 +107,7 @@ def mapElevation():
     p = Pool(numProc)
     print "mapping..."
     p.map(getElevationWorker,allData)
-    
+
 def getElevationWorker(data):
     for i,d in enumerate(data):
         print i
@@ -117,7 +117,7 @@ def getElevationWorker(data):
         d.update_one({'elevation':h})
         data.save(d)
         print "updated record"
-    
+
 
 def getElevation(lat, lon):
     key = "97529b523e71d8d51576ce9bbb89a0ce"
@@ -128,18 +128,18 @@ def getElevation(lat, lon):
     gkey = "AIzaSyCF3UR0T6os4LWIZLsYbH2LNv2yQpzZqEk"
     unixtime = "1420498800"
     #getURL = baseURL+key+"/"+str(lat)+","+str(lat)+","+str(time)+"?"+excludeString
-    
+
     getURL = "https://maps.googleapis.com/maps/api/elevation/json?locations=%s,%s&key=%s" % (lat, lon, gkey)
-    
+
     print getURL
 
-    
+
     r = requests.get(getURL)
-    
-    
+
+
     elevation = r.json()['results'][0]['elevation']
     #print "elevation is "+ str(elevation)
-    return elevation 
+    return elevation
     # write to db
     #post_id = data.insert_one(r.json()).inserted_id
     #print("written to db")
@@ -151,7 +151,7 @@ def getElevation(lat, lon):
 writeCSVfromDB()
 
 
-### data modification 
+### data modification
 #
 #writeElevationToMongo()
 #mapElevation()
