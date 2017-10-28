@@ -106,9 +106,9 @@ firebaseCall(file)
 xfmt = mdates.DateFormatter('%b %d %H')
 ax.xaxis.set_major_formatter(xfmt)
 
-plt.title('PDX Weather Predictions for 2018')
+plt.title('Weather Predictions for 2018, 2019, 2020, 2021')
 plt.legend(handles=[plot_predicted, plot_test])
 plt.show()
 
-fig.save("./curves/2018.png")
-firebaseCall("./curves/2018.png")
+fig.save("./curves/curve.png")
+firebaseCall("./curves/curve.png")
