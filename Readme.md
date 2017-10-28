@@ -30,10 +30,15 @@ $ mkvirtualenv ltsm
 (ltsm) $
 ```
 
-### Install Requirements
+#### Install Requirements
 
 #### Requirements for tensorflow-1.1.0 and polyaxon
 
 ```
 (ltsm) $ pip install -r ./requirements.txt
 ```
+
+### Future Implementation
+
+It was planned to use neural networks and supplied river levels to predict and help prepare for flooding, however, it was not feasible in the timeframe. 
+In addition, *Google Cloud Computing* was the first choice for implementing the neural network so that users can directly interact with the model. For example, being able to enter a future date and then shown both curve plots and a geographical representation. Google Cloud has a free solution which we hoped and prepared to implement, however, our credit cards were refused during signup.
