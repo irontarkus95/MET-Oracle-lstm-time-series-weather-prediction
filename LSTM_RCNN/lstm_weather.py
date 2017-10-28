@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import firebase_restapi
 
 from tensorflow.contrib import learn
 
@@ -97,12 +98,17 @@ plot_predicted, = ax.plot(predicted_series, label='predicted (c)')
 test_values = y['test'].flatten()
 test_dates = all_dates[len(all_dates)-len(test_values):len(all_dates)]
 test_series = pd.Series(test_values, index=test_dates)
-plot_test, = ax.plot(test_series, label='2015 (c)')
+plot_test, = ax.plot(test_series, label='01-JAN-2017 to 11-OCT-2017 (c)')
+
+file = json.dumps(plot_test)
+firebaseCall(file)
 
 xfmt = mdates.DateFormatter('%b %d %H')
 ax.xaxis.set_major_formatter(xfmt)
 
-plt.title('PDX Weather Predictions for 2018 vs 2017')
+plt.title('PDX Weather Predictions for 2018')
 plt.legend(handles=[plot_predicted, plot_test])
 plt.show()
 
+fig.save("./curves/2018.png")
+firebaseCall("./curves/2018.png")
