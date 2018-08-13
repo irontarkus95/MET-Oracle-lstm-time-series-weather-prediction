@@ -1,6 +1,6 @@
 # MET-Oracle: Weather Prediction to Improve Smart City Resilience
 ---
-__*MET-Oracle*__ is a tool to improve the lives of citizens and increase infrastructure's resilience, in Trinidad and Tobago, by helping us predict and prepare for adverse weather conditions brought on by Global Warming, and quantifying the effect it will have on our country's climate. It is a linear regression model built in Python using Tensorflow and our web interface uses the Google Maps API.
+__*MET-Oracle*__ is a tool to improve the lives of citizens and increase infrastructure's resilience, in Trinidad and Tobago, by helping us predict and prepare for adverse weather conditions brought on by Global Warming, and quantifying the effect it will have on our country's climate. It uses time series prediction built in Python using Tensorflow and our web interface uses the Google Maps API.
 
 ---
 ---
